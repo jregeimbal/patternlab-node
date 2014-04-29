@@ -1,10 +1,12 @@
  {
  	"patterns" : {
- 		"source" : "/../../source/_patterns/",
- 		"public" : "/../../public/patterns/"
+    "source" : "./../src/patternlab/_patterns/",
+    "patternlab" : "./../src/patternlab/_patternlab-files/",
+    "data" : "./../src/patternlab/_data/",
+ 		"public" : "./public/patterns/"
  	},
  	"ignored-extensions" : ["scss", "DS_Store", "less"],
  	"ignored-directories" : ["scss"],
  	"contentSyncPort" : 8002,
  	"navSyncPort" : 8003
- }
+}

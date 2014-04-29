@@ -18,12 +18,15 @@ module.exports = function(grunt) {
 			main: {
 				files: [
 					{ expand: true, cwd: './source/js/', src: '*', dest: './public/js/'},
-					{ expand: true, cwd: './source/css/', src: 'style.css', dest: './public/css/' },
+					{ expand: true, cwd: './source/css/', src: '*', dest: './public/css/' },
 					{ expand: true, cwd: './source/images/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/' },
 					{ expand: true, cwd: './source/images/sample/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/sample/'},
 					{ expand: true, cwd: './source/fonts/', src: '*', dest: './public/fonts/'},
-					{ expand: true, cwd: './source/_data/', src: 'annotations.js', dest: './public/data/' }
-				]
+					{ expand: true, cwd: './source/_data/', src: 'annotations.js', dest: './public/data/' },
+          { expand: true, cwd: './../src/components/fonts', src: ['**/*.{eot,ttf,woff,svg,otf}'], dest: './public/css/fonts/'},
+          { expand: true, cwd: './../bootstrap/fonts', src: ['**/*.{eot,ttf,woff,svg,otf}'], dest: './public/css/fonts/' }
+        
+        ]
 			}
 		},
 		jshint: {
@@ -59,12 +62,31 @@ module.exports = function(grunt) {
 					precision: 8
 				},
 				files: {
-					'./source/css/style.css': './source/css/style.scss',
+					// './source/css/style.css': './source/css/style.scss',
 					'./public/styleguide/css/static.css': './public/styleguide/css/static.scss',
 					'./public/styleguide/css/styleguide.css': './public/styleguide/css/styleguide.scss'
 				}
 			}
 		},
+    less: {
+      build: {
+        options: {
+          paths: [
+            '../src/Content/primer_flex/less',
+            '../src/Content/primer/less',
+            '../src/Content/flatware/less',
+            '../bootstrap/less',
+            '../docs/less'
+          ]
+        },
+        files: {
+          // 'source/css/style.css':     '../src/Content/primer_flex/less/custom-bootstrap.less',
+          'source/css/primer.css':    '../src/Content/primer_flex/less/custom-bootstrap.less',
+          'source/css/flatware.css':  '../src/Content/flatware/less/custom-bootstrap.less',
+          'source/css/bootstrap.css': '../bootstrap/less/bootstrap.less'
+        }
+      }
+    },
 		qunit: {
 			all:{
 				options:{
@@ -81,7 +103,7 @@ module.exports = function(grunt) {
 	grunt.task.loadTasks('./builder/');
 
 	//if you choose to use scss, or any preprocessor, you can add it here
-	grunt.registerTask('default', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy']);
+	grunt.registerTask('default', ['clean', 'concat', 'patternlab', 'less', 'copy']);
 
 	//travis CI task
 	grunt.registerTask('travis', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy', 'qunit'])
