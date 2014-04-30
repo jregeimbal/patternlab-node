@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				stripBanners: true,
-				banner: '/* \n * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> \n * \n * <%= pkg.author %>, and the web community.\n * Licensed under the <%= pkg.license %> license. \n * \n * Many thanks to Brad Frost and Dave Olsen for inspiration, encouragement, and advice. \n *\n */\n\n',
+				banner: '/* \n * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> \n * \n * <%= pkg.author %>, and the web community.\n * Licensed under the <%= pkg.license %> license. \n * \n * Many thanks to Brad Frost and Dave Olsen for inspiration, encouragement, and advice. \n *\n */\n\n'
 			},
 			dist: {
 				src: './builder/patternlab.js',
@@ -81,9 +81,9 @@ module.exports = function(grunt) {
         },
         files: {
           // 'source/css/style.css':     '../src/themes/primer_flex/less/custom-bootstrap.less',
-          'source/css/primer.css':    '../src/themes/primer_flex/less/custom-bootstrap.less',
-          'source/css/flatware.css':  '../src/themes/flatware/less/custom-bootstrap.less',
-          'source/css/bootstrap.css': '../bootstrap/less/bootstrap.less'
+          'public/css/primer.css':    '../src/themes/primer_flex/less/custom-bootstrap.less',
+          'public/css/flatware.css':  '../src/themes/flatware/less/custom-bootstrap.less',
+          'public/css/bootstrap.css': '../bootstrap/less/bootstrap.less'
         }
       }
     },
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 	});
 
 	// load all grunt tasks
- 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 	//load the patternlab task
 	grunt.task.loadTasks('./builder/');
@@ -106,5 +106,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['clean', 'concat', 'patternlab', 'less', 'copy']);
 
 	//travis CI task
-	grunt.registerTask('travis', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy', 'qunit'])
+	grunt.registerTask('travis', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy', 'qunit']);
 };
