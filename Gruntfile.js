@@ -72,17 +72,17 @@ module.exports = function(grunt) {
       build: {
         options: {
           paths: [
-            '../src/Content/primer_flex/less',
-            '../src/Content/primer/less',
-            '../src/Content/flatware/less',
+            '../src/themes/primer_flex/less',
+            '../src/themes/primer/less',
+            '../src/themes/flatware/less',
             '../bootstrap/less',
             '../docs/less'
           ]
         },
         files: {
-          // 'source/css/style.css':     '../src/Content/primer_flex/less/custom-bootstrap.less',
-          'source/css/primer.css':    '../src/Content/primer_flex/less/custom-bootstrap.less',
-          'source/css/flatware.css':  '../src/Content/flatware/less/custom-bootstrap.less',
+          // 'source/css/style.css':     '../src/themes/primer_flex/less/custom-bootstrap.less',
+          'source/css/primer.css':    '../src/themes/primer_flex/less/custom-bootstrap.less',
+          'source/css/flatware.css':  '../src/themes/flatware/less/custom-bootstrap.less',
           'source/css/bootstrap.css': '../bootstrap/less/bootstrap.less'
         }
       }
