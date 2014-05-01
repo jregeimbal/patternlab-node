@@ -24,8 +24,9 @@ module.exports = function(grunt) {
 					{ expand: true, cwd: './source/fonts/', src: '*', dest: './public/fonts/'},
 					{ expand: true, cwd: './source/_data/', src: 'annotations.js', dest: './public/data/' },
           { expand: true, cwd: './../src/components/fonts', src: ['**/*.{eot,ttf,woff,svg,otf}'], dest: './public/css/fonts/'},
-          { expand: true, cwd: './../bootstrap/fonts', src: ['**/*.{eot,ttf,woff,svg,otf}'], dest: './public/css/fonts/' }
-        
+          { expand: true, cwd: './../bootstrap/fonts', src: ['**/*.{eot,ttf,woff,svg,otf}'], dest: './public/css/fonts/' },
+          { expand: true, cwd: './../src/patternlab/images/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/'}
+          
         ]
 			}
 		},
