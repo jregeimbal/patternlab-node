@@ -73,6 +73,7 @@ module.exports = function(grunt) {
       build: {
         options: {
           paths: [
+            '../src/themes/srm/less',
             '../src/themes/primer_flex/less',
             '../src/themes/primer/less',
             '../src/themes/flatware/less',
@@ -82,6 +83,7 @@ module.exports = function(grunt) {
         },
         files: {
           // 'source/css/style.css':     '../src/themes/primer_flex/less/custom-bootstrap.less',
+          'public/css/srm.css':    '../src/themes/srm/less/custom-bootstrap.less',
           'public/css/primer.css':    '../src/themes/primer_flex/less/custom-bootstrap.less',
           'public/css/flatware.css':  '../src/themes/flatware/less/custom-bootstrap.less',
           'public/css/bootstrap.css': '../bootstrap/less/bootstrap.less'
